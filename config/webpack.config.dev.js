@@ -169,6 +169,8 @@ module.exports = {
                 loader: require.resolve('css-loader'),
                 options: {
                   importLoaders: 1,
+                  // modules: true, // Enables CSS Modules - You have to use CSS Modules in the whole project or else the styles break
+                  // localIdentName: '[name]_[local]_[hash:base64:5]' // How webpack will generate the class' names
                 },
               },
               {
