@@ -2,6 +2,6 @@ import React from 'react';
 import ProgressBar from 'ps-react/ProgressBar';
 
 /** 70% progress */
-export default function Example10Percent() {
-    return <ProgressBar percent={70} width={150} />
-}
+const Example70Percent = () => <ProgressBar percent={70} width={150} />;
+
+export default Example70Percent;
