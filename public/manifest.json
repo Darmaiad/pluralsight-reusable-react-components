@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reusable React Components",
+  "name": "Pluralsight - Reusable React Components",
   "icons": [
     {
       "src": "favicon.ico",
