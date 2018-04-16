@@ -2,9 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
+// This should be probably run inside a configuration file, not here
+/* eslint-disable no-unused-vars */
+import configure from './../../../config/jest/enzymesetup';
 import PasswordInput from './PasswordInput';
 
-// Snapshot test
+// Snapshot tests
 //  -  Snapshot tests will always pass the first time they run, since they take a snapshot of the component output.
 
 test('Hides password quality bar by default', () => {
@@ -37,4 +40,23 @@ test('hides password quality when enabled but no password is entered', () => {
 });
 
 // Interaction test
+test('toggles input type when show/hide password clicked', () => {
+    const wrapper = shallow(<PasswordInput
+        htmlId="test"
+        name="test"
+        value=""
+        onChange={() => { }}
+        showVisibilityToggle
+    />
+    );
 
+    // Password input should have a type of password initially
+    expect(wrapper.find({ type: 'password' })).toHaveLength(1);
+    expect(wrapper.find({ type: 'text' })).toHaveLength(0);
+
+    wrapper.find('a').simulate('click');
+
+    // Password input should have a type of text after clicking toggle
+    expect(wrapper.find({ type: 'password' })).toHaveLength(0);
+    expect(wrapper.find({ type: 'text' })).toHaveLength(1);
+});
