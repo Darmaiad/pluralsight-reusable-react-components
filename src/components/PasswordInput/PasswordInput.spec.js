@@ -18,13 +18,23 @@ test('Hides password quality bar by default', () => {
 
 test('shows password quality when enabled and a password is entered', () => {
     const tree = renderer.create(<PasswordInput
-      htmlId="test"
-      name="test"
-      onChange={() => {}}
-      showQuality
-      value="Uisi38#8iad" />).toJSON();
+        htmlId="test"
+        name="test"
+        onChange={() => { }}
+        showQuality
+        value="Uisi38#8iad" />).toJSON();
     expect(tree).toMatchSnapshot();
-  });
+});
+
+test('hides password quality when enabled but no password is entered', () => {
+    const tree = renderer.create(<PasswordInput
+        htmlId="test"
+        name="test"
+        onChange={() => { }}
+        showQuality
+        value="" />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
 // Interaction test
 
