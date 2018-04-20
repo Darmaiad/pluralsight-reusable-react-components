@@ -2,13 +2,16 @@
   "name": "pluralsight-reusable-react-components",
   "version": "1.0.0",
   "description": "This project is based on the Pluralsight course: \"Creating Reusable React Components\", by Cory House.",
+  "homepage": "https://darmaiad.github.io/pluralsight-reusable-react-components/",
   "scripts": {
     "prestart": "npm run gen:docs",
     "start": "npm-run-all --parallel start:docs gen:docs-watch",
     "start:docs": "node scripts/start.js",
     "gen:docs": "node scripts/generateComponentData.js",
     "gen:docs-watch": "npm run gen:docs -- --watch",
-    "build": "node scripts/build.js",
+    "build:docs": "node scripts/build.js",
+    "predeploy:docs": "npm run build:docs",
+    "deploy:docs": "gh-pages -d build",
     "test": "node scripts/test.js --env=jsdom"
   },
   "dependencies": {
@@ -60,6 +63,7 @@
     "chokidar": "^2.0.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "gh-pages": "^1.1.0",
     "npm-run-all": "^4.1.2",
     "react-addons-test-utils": "^15.6.2",
     "react-docgen": "^2.20.1",
