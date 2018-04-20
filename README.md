@@ -9,6 +9,8 @@ A library of React components with documentation and examples. The project is ba
   * Run `npm start` to launch to the project in development environment.
   * Run `npm run build` to launch to the project in production environment.
   * Run `npm test` to run the tests.
+  
+ Instead of all the above, you can view the components at this project's webpage, with the predictable URL: [https://darmaiad.github.io/pluralsight-reusable-react-components/](https://darmaiad.github.io/pluralsight-reusable-react-components/)
 
 ## Description
 This is a small library of React components. When running the project you can see the rich documentation that is dynamically generated with react-docgen, displaying the source code, the props accepted, examples of use, and more. I developed the project while coding along with the courses' instructor. I did some code refactoring and added comments .
