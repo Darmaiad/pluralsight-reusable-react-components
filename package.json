@@ -9,6 +9,7 @@
     "start:docs": "node scripts/start.js",
     "gen:docs": "node scripts/generateComponentData.js",
     "gen:docs-watch": "npm run gen:docs -- --watch",
+    "prebuild:docs": "npm run gen:docs-watch",
     "build:docs": "node scripts/build.js",
     "predeploy:docs": "npm run build:docs",
     "deploy:docs": "gh-pages -d build",
