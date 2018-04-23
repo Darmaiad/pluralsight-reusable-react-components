@@ -1,5 +1,5 @@
 {
-  "name": "pluralsight-reusable-react-components",
+  "name": "pluralsight-reusable-react-components-build-template",
   "version": "1.0.0",
   "main": "./lib/index.js",
   "engines": {
@@ -8,6 +8,7 @@
   "files": [
     "lib"
   ],
+  "private": true,
   "description": "This project is based on the Pluralsight course: \"Creating Reusable React Components\", by Cory House.",
   "homepage": "https://darmaiad.github.io/pluralsight-reusable-react-components/",
   "scripts": {
@@ -23,8 +24,10 @@
     "test": "node scripts/test.js --env=jsdom",
     "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
     "build:css": "cpx \"./src/components/**/*.css\" ./lib",
+    "build:copy-files": "node scripts/copyBuildFiles.js",
     "prebuild:lib": "rimraf lib",
-    "build:lib": "npm-run-all --parallel build:commonjs build:css"
+    "build:lib": "npm-run-all --parallel build:commonjs build:css build:copy-files",
+    "prepublish": "npm run build:lib"
   },
   "dependencies": {
     "autoprefixer": "7.1.6",
