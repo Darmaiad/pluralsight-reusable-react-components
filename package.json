@@ -147,9 +147,10 @@
     "babel",
     "jest",
     "reactjs",
-    "travis-ci",
     "continuous-integration",
-    "continuous-deployment"
+    "continuous-deployment",
+    "travis-ci",
+    "appveyor"
   ],
   "license": "ISC",
   "repository": {
