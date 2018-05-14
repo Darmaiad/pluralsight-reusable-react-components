@@ -26,7 +26,14 @@
     "prebuild:lib": "rimraf lib",
     "build:lib": "npm-run-all --parallel build:commonjs build:css build:copy-files",
     "prepublish": "npm run build:lib",
-    "prettify": "prettier --single-quote --write \"src/**/*.js\""
+    "prettify": "prettier --single-quote --write \"src/**/*.js\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "prismjs": "^1.14.0",
