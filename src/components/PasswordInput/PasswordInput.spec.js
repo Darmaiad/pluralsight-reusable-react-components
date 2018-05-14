@@ -11,52 +11,68 @@ import PasswordInput from './PasswordInput';
 //  -  Snapshot tests will always pass the first time they run, since they take a snapshot of the component output.
 
 test('Hides password quality bar by default', () => {
-    const tree = renderer.create(<PasswordInput
+  const tree = renderer
+    .create(
+      <PasswordInput
         htmlId="test"
         name="test"
-        onChange={() => { }}
-        value="Uisi38#8iad" />).toJSON();
-    expect(tree).toMatchSnapshot();
+        onChange={() => {}}
+        value="Uisi38#8iad"
+      />
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
 test('shows password quality when enabled and a password is entered', () => {
-    const tree = renderer.create(<PasswordInput
+  const tree = renderer
+    .create(
+      <PasswordInput
         htmlId="test"
         name="test"
-        onChange={() => { }}
+        onChange={() => {}}
         showQuality
-        value="Uisi38#8iad" />).toJSON();
-    expect(tree).toMatchSnapshot();
+        value="Uisi38#8iad"
+      />
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
 test('hides password quality when enabled but no password is entered', () => {
-    const tree = renderer.create(<PasswordInput
+  const tree = renderer
+    .create(
+      <PasswordInput
         htmlId="test"
         name="test"
-        onChange={() => { }}
+        onChange={() => {}}
         showQuality
-        value="" />).toJSON();
-    expect(tree).toMatchSnapshot();
+        value=""
+      />
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
 // Interaction test
 test('toggles input type when show/hide password clicked', () => {
-    const wrapper = shallow(<PasswordInput
-        htmlId="test"
-        name="test"
-        value=""
-        onChange={() => { }}
-        showVisibilityToggle
+  const wrapper = shallow(
+    <PasswordInput
+      htmlId="test"
+      name="test"
+      value=""
+      onChange={() => {}}
+      showVisibilityToggle
     />
-    );
+  );
 
-    // Password input should have a type of password initially
-    expect(wrapper.find({ type: 'password' })).toHaveLength(1);
-    expect(wrapper.find({ type: 'text' })).toHaveLength(0);
+  // Password input should have a type of password initially
+  expect(wrapper.find({ type: 'password' })).toHaveLength(1);
+  expect(wrapper.find({ type: 'text' })).toHaveLength(0);
 
-    wrapper.find('a').simulate('click');
+  wrapper.find('a').simulate('click');
 
-    // Password input should have a type of text after clicking toggle
-    expect(wrapper.find({ type: 'password' })).toHaveLength(0);
-    expect(wrapper.find({ type: 'text' })).toHaveLength(1);
+  // Password input should have a type of text after clicking toggle
+  expect(wrapper.find({ type: 'password' })).toHaveLength(0);
+  expect(wrapper.find({ type: 'text' })).toHaveLength(1);
 });
